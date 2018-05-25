@@ -74,7 +74,7 @@ class EverywordBot(object):
         self.twitter.update_status(status=status_str,
                                    lat=self.lat, long=self.long,
                                    place_id=self.place_id)
-        self._increment_index(index)
+        #self._increment_index(index)
 
 
 def _csv_to_float_list(csv):
