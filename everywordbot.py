@@ -1,16 +1,18 @@
 import tweepy
 import os
 
+import random
+
 
 class EverywordBot(object):
 
     def __init__(self, consumer_key, consumer_secret,
                  access_token, token_secret,
-                 source_file_name, index_file_name,
+                 source_file_name,
                  lat=None, long=None, place_id=None,
                  prefix=None, suffix=None, bbox=None):
         self.source_file_name = source_file_name
-        self.index_file_name = index_file_name
+        #self.index_file_name = index_file_name
         self.lat = lat
         self.long = long
         self.place_id = place_id
@@ -45,18 +47,27 @@ class EverywordBot(object):
     def _random_point_in(self, bbox):
         """Given a bounding box of (swlat, swlon, nelat, nelon),
          return random (lat, long)"""
-        import random
+        #import random
         lat = random.uniform(bbox[0], bbox[2])
         long = random.uniform(bbox[1], bbox[3])
         return (lat, long)
 
+    def _random_word(self):
+        words = list(open(self.source_file_name))
+        word = random.choice(words).strip()
+        
+        return word
+
+    
     def post(self):
-        index = self._get_current_index()
-        status_str = self._get_current_line(index)
+        #index = self._get_current_index()
+        #status_str = self._get_current_line(index)
+        status_str = self._random_word()
+
         if self.prefix:
             status_str = self.prefix + status_str
         if self.suffix:
-            status_str = status_str + self.suffix
+            status_str = status_str + self.suffixr)
         if self.bbox:
             self.lat, self.long = self._random_point_in(self.bbox)
 
