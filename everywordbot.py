@@ -67,7 +67,7 @@ class EverywordBot(object):
         if self.prefix:
             status_str = self.prefix + status_str
         if self.suffix:
-            status_str = status_str + self.suffixr)
+            status_str = status_str + self.suffix
         if self.bbox:
             self.lat, self.long = self._random_point_in(self.bbox)
 
