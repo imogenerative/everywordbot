@@ -124,7 +124,7 @@ if __name__ == '__main__':
 
     bot = EverywordBot(options.consumer_key, options.consumer_secret,
                        options.access_token, options.token_secret,
-                       options.source_file, options.index_file,
+                       options.source_file,
                        options.lat, options.long, options.place_id,
                        options.prefix, options.suffix, options.bbox)
 
