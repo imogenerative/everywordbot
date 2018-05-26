@@ -72,7 +72,7 @@ class EverywordBot(object):
             self.lat, self.long = self._random_point_in(self.bbox)
 
         if status_str == "nanotechnology":
-            status_str = "@elonmusk " + status_str
+            status_str = ".@elonmusk " + status_str
 
         self.twitter.update_status(status=status_str,
                                    lat=self.lat, long=self.long,
